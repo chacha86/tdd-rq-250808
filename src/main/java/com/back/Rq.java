@@ -11,9 +11,8 @@ public class Rq {
 
     public String getActionName() {
 
-        if(cmd.equals("삭제?id=1")) return "삭제";
-        if(cmd.equals("수정?id=1")) return "수정";
-
-        return "삭제";
+        // ? 기준 왼쪽을 잘라서 반환하면 된다.
+        // 문자를 자른는 방법? -> gpt한테 물어보자
+        return cmd.split("\\?")[0];
     }
 }
