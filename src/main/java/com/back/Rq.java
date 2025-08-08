@@ -14,11 +14,14 @@ public class Rq {
         return cmd.split("\\?")[0];
     }
 
-    public String getParam(String key) {
+    public String getParam(String inputKey) {
 
-        if(cmd.equals("등록?이름=홍길동")) return "홍길동";
-        if(cmd.equals("등록?고향=서울")) return "서울";
+        String[] cmdBits = cmd.split("\\?");
+        String queryString = cmdBits[1];
 
-        return "";
+        String[] paramBits = queryString.split("=");
+        String value = paramBits[1];
+
+        return value;
     }
 }
