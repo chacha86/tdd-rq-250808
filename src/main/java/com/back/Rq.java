@@ -14,14 +14,19 @@ public class Rq {
         return cmd.split("\\?")[0];
     }
 
-    public String getParam(String inputKey) {
+    public String getParam(String inputKey, String defaultValue) {
 
         String[] cmdBits = cmd.split("\\?");
         String queryString = cmdBits[1];
 
         String[] paramBits = queryString.split("=");
+        String key = paramBits[0];
         String value = paramBits[1];
 
-        return value;
+        if(inputKey.equals(key)) {
+            return value;
+        }
+
+        return defaultValue;
     }
 }
